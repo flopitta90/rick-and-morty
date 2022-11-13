@@ -12,6 +12,7 @@ export const DivDetail = styled.div`
   align-items: center;
   margin: 3% 15%;
   border-radius: 25px;
+  box-shadow: 0 0 20px #19c1a8;
   @media(max-width: 750px){
       flex-direction: column;
       padding-bottom: 20px;
@@ -27,9 +28,10 @@ export const Volver = styled.button`
    font-size: medium;
    margin: 0px 45%;
    &:hover{
-      background-color: white;
-      color: black;  
+      background-color: black;
+      color: white;  
       cursor: pointer;
+      box-shadow: 0 0 10px #19c1a8;
    }
  
 `

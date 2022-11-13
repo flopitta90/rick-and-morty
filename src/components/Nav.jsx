@@ -24,6 +24,7 @@ export const NavButtons =styled.button`
     background-color: black;
     color: white;  
     cursor: pointer;
+    box-shadow: 0 0 10px #19c1a8;
  }
 `
 

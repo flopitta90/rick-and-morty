@@ -4,8 +4,9 @@ import Card from './Card'
 import styled from 'styled-components'
 import { filterCards, orderCards , filterBySpecie} from '../redux/actions'
 import { useState } from 'react'
-import SortIcon from "./sort-27-16.png"
-import FilterIcon from "./filter-10-16.png"
+import SortIcon from "../img/sort-27-16.png"
+import FilterIcon from "../img/filter-10-16.png"
+import { useLocation } from 'react-router-dom'
 
 const Divcard = styled.div`
    display: flex;
@@ -24,7 +25,7 @@ const DivSelect = styled.div`
    flex-wrap: wrap;
    justify-content: space-evenly;
    margin: 10px;
-   background-color: rgb(255,255,255,0.4);
+   background-color: rgb(25, 193, 168, 0.5);
    border-radius: 20px;
    width: 500px;
    padding: 10px;
@@ -74,7 +75,7 @@ const Favorites = ({myFavorites, allCharacters}) => {
         dispatch(filterCards(payload))
       }
     }
-    
+    const location = useLocation()
 
   return (
     <DivFilters>

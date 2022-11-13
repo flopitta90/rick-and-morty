@@ -20,6 +20,7 @@ const FormLogin = styled.form`
   width: 500px;
   background-color: #131318;
   border-radius: 20px;
+  box-shadow: 0 0 20px #39fae0;
   ;
 `
 const SubmitButton = styled.button`

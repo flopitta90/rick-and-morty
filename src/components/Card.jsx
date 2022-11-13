@@ -21,6 +21,7 @@ const CardDiv = styled.div`
    &:hover {
       transform: scale(1.05) translate(-2%, -2%);
       transition-delay: 250ms;
+      box-shadow: 0 0 10px #19c1a8;
       }
 `
 const ButtonX = styled.button`
