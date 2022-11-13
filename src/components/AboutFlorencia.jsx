@@ -1,18 +1,19 @@
 import React from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import {Volver , DivDetail} from './Detail'
 import linkedIn from '../img/social-linkedin-32.png'
 import gitHub from '../img/github-61-32.png'
 import styled from 'styled-components'
 
 const IconsDiv=styled.div`
-  background-color: aquamarine;
+  background-color: rgb(127, 255, 212, 0.8);
   width: 80px;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   border-radius: 5px;
   box-shadow: 0 0 10px #19c1a8;
+  margin-bottom: 20px;
 `
 const Container = styled.div`
   display: flex;
@@ -44,8 +45,8 @@ export const AboutFlorencia = () => {
           <h4>Fullstack developer student from Henry</h4>
          <Container>
          <IconsDiv>
-         <Link href='https://www.linkedin.com/in/florencia-conforti'><img src={linkedIn}/> </Link>
-        <Link href='https://github.com/flopitta90' ><img src={gitHub}/></Link>
+          <Link target ='_blank' href='https://www.linkedin.com/in/florencia-conforti'><img src={linkedIn}/> </Link>
+          <Link target ='_blank' href='https://github.com/flopitta90' ><img src={gitHub}/></Link>
           </IconsDiv>
           </Container>
        </div>

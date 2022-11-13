@@ -106,7 +106,7 @@ const Favorites = ({myFavorites, allCharacters}) => {
           <option value={gender}>{gender}</option>)}
       </DropDown>
     
-      <DropDown id='species'onChange={handleFilter} >
+      <DropDown id='species' onChange={handleFilter} >
         <option value='All'>All</option>
         {setSpecie.map(specie =>
           <option value={specie}>{specie}</option>)}
