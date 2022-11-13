@@ -10,16 +10,24 @@ import FilterIcon from "./filter-10-16.png"
 const Divcard = styled.div`
    display: flex;
    flex-wrap: wrap;
-   justify-content: space-around;
+   justify-content: space-evenly;
    margin-bottom: 20px;
    font-size: 16px;
    `
-
+const DivFilters= styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 const DivSelect = styled.div`
    display: flex;
    flex-wrap: wrap;
    justify-content: space-evenly;
    margin: 10px;
+   background-color: rgb(255,255,255,0.4);
+   border-radius: 20px;
+   width: 500px;
+   padding: 10px;
    `   
 
 const DropDown = styled.select`
@@ -36,17 +44,40 @@ const Favorites = ({myFavorites, allCharacters}) => {
 
   const dispatch = useDispatch()
 
-  useEffect(()=> {
-    dispatch(filterCards('All'))},[allCharacters])
 
 
+  const arrayGender = allCharacters.map(char => char.gender)
+  const arraySpecies = allCharacters.map(char => char.species)
+  const setGender = [...new Set(arrayGender)]
+  const setSpecie = [...new Set(arraySpecies)]
+  
 
  const handleChange= (e) => {
   dispatch(orderCards(e.target.value))
   }
 
+  
+  const [selectedGender , setSelectedGender] = useState('All')
+  const [selectedSpecie, setSelectedSpecie] = useState('All')
+  
+ 
+
+  const handleFilter = (e) => {
+  
+    if(e.target.id === 'gender'){
+      setSelectedGender(e.target.value)
+      const payload = {gender: e.target.value, species: selectedSpecie}
+      dispatch(filterCards(payload))
+    } else {
+        setSelectedSpecie(e.target.value)
+        const payload = {gender: selectedGender, species: e.target.value} 
+        dispatch(filterCards(payload))
+      }
+    }
+    
+
   return (
-    <div>
+    <DivFilters>
       <DivSelect>
         <div>
         <img src={SortIcon} height='14px'/>
@@ -55,36 +86,29 @@ const Favorites = ({myFavorites, allCharacters}) => {
       <DropDown onChange={handleChange}>
          <option>None</option> 
          <option value='A-Z'>A-Z</option>
-         <option value="Z-A">Z-A</option>
+         <option value='Z-A'>Z-A</option>
       </DropDown>
       <DropDown onChange={handleChange}>
         <option>None</option>
         <option value="Ascendente">Ascendente</option>
         <option value="Descendente">Descendente</option>
       </DropDown>
+      <br/>
       </div>
       <div>
       <img src={FilterIcon}/>
       <label> Filter</label>
       <br/>
-      <DropDown onChange={(e) => dispatch(filterCards(e.target.value))} >
+      <DropDown  id='gender' onChange={handleFilter} >
         <option value='All'>All</option>
-        <option value='Male'>Male</option>
-        <option value='Female'>Female</option>
-        <option value='Genderless'>Genderless</option>
-        <option value='unknown'>Unknown</option>
+        {setGender.map(gender =>
+          <option value={gender}>{gender}</option>)}
       </DropDown>
     
-      <DropDown onChange={(e) => dispatch(filterBySpecie(e.target.value))} >
+      <DropDown id='species'onChange={handleFilter} >
         <option value='All'>All</option>
-        <option value='Human'>Human</option>
-        <option value='Robot'>Robot</option>
-        <option value='Alien'>Alien</option>
-        <option value='Animal'>Animal</option>
-        <option value='Humanoid'>Humanoid</option>
-        <option value='Poopybutthole'>Poopybutthole</option>
-        <option value='Cronenberg'>Cronenberg</option>
-        <option value='unknown'>Unknown</option>
+        {setSpecie.map(specie =>
+          <option value={specie}>{specie}</option>)}
       </DropDown>
       </div>
       </DivSelect>
@@ -100,9 +124,9 @@ const Favorites = ({myFavorites, allCharacters}) => {
             />
       )}
     </Divcard>
-  </div>
-  )
-}
+  </DivFilters>
+  )}
+
 
 function mapStateToProps(state){
  return{myFavorites: state.myFavorites, allCharacters: state.allCharacters} 

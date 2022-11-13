@@ -19,14 +19,18 @@ function reducer (state = initialState, action){
         
     case DELETE_FAVORITE:
       return {allCharacters: state.allCharacters.filter(char => char.id !== action.payload),
-      myFavorites: state.allCharacters};
+      myFavorites: state.myFavorites.filter(char=> char.id !== action.payload)};
 
     case FILTER:
-      if(action.payload === 'All'){
+      if(action.payload === {gender: 'All', species: 'All'}){
         return {...state, myFavorites: state.allCharacters}
       }
       return {...state,
-      myFavorites: state.allCharacters.filter(char => char.gender === action.payload)};
+      myFavorites: [...state.allCharacters.filter(char => 
+          ((action.payload.gender === 'All' || action.payload.gender === char.gender) && 
+          (action.payload.species === 'All' || char.species === action.payload.species)))
+        ]
+      };
 
     case ORDER:
         if(action.payload === "Ascendente"){
@@ -45,14 +49,7 @@ function reducer (state = initialState, action){
         };
         return {...state,
           myFavorites: [...state.myFavorites.sort((a , b) => b.name.localeCompare(a.name))]
-        }   
-
-    case FILTER_SPECIE:    
-      if(action.payload === 'All'){
-        return {...state, myFavorites: state.allCharacters}
-      }
-      return {...state,
-      myFavorites: state.allCharacters.filter(char => char.species === action.payload)};
+        };
 
     default: return state
   }

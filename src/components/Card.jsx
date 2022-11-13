@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Link, useLocation} from 'react-router-dom'
+import {NavLink, useLocation} from 'react-router-dom'
 import { addFavorite, deleteFavorite } from "../redux/actions.js";
 import { connect } from "react-redux";
 import { useState, useEffect  } from "react";
@@ -17,9 +17,9 @@ const CardDiv = styled.div`
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   margin-top: 35px;
+   margin: 15px;
    &:hover {
-      transform: scale(1.1) translate(-2%, -2%);
+      transform: scale(1.05) translate(-2%, -2%);
       transition-delay: 250ms;
       }
 `
@@ -84,6 +84,9 @@ const CrossFav = styled.div`
    flex-direction: column;
    align-items: center;
 `
+const Link = styled(NavLink)`
+   text-decoration: none;
+`
 
 
 
@@ -125,13 +128,14 @@ function Card(props) {
    
 const location = useLocation()
 function longNames(){
-   if(props.name.length > 20 || props.name.length > 10 && !props.name.includes(' ')){
-      return props.name.slice(0,10) + '...'
+   const arrayName = props.name.split(' ')
+   const bigName = arrayName.filter(word => word.length > 10)
+   if(props.name.length > 20 || bigName.length > 0){
+      return props.name.slice(0,15) + '...'
    };
    return props.name   
 }
-   
-   ///^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+
 // lo que renderiza nuestro componente
    return (
       <CardDiv>

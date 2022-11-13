@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import SearchBar from "./SearchBar.jsx";
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 
