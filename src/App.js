@@ -8,6 +8,7 @@ import Detail from './components/Detail.jsx'
 import Form from './components/Form.jsx'
 import {useNavigate} from 'react-router-dom'
 import Favorites from './components/Favorites.jsx'
+import { AboutFlorencia } from './components/AboutFlorencia'
 
 
 
@@ -64,6 +65,7 @@ function App () {
           <Route path='/about' element={<About/>}/>
           <Route path='/detail/:id' element={<Detail/>}/>
           <Route path='/favorites' element={<Favorites/>}/>
+          <Route path='/detail/1000' element={<AboutFlorencia/>}/>
       </Routes>
     </div>
 

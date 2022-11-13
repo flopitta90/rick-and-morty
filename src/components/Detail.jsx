@@ -3,38 +3,51 @@ import { useParams, useNavigate} from 'react-router-dom'
 import styled from 'styled-components'
 
 
-const DivDetail = styled.div`
+export const DivDetail = styled.div`
   background-color: rgb(0, 0, 0, 0.75);
-  color: #d2d0d0;
+  color: #19c1a8;
+  text-shadow: 0 0 1px rgb(5, 5, 5);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin: 5% 15%;
+  margin: 3% 15%;
   border-radius: 25px;
+  @media(max-width: 750px){
+      flex-direction: column;
+      padding-bottom: 20px;
+   }
+     
   
 `
-const Volver = styled.button`
-   background-color: #93f566;
+export const Volver = styled.button`
+   background-color:#19c1a8;;
    border-radius: 5px;
-   margin-top: 5%;
-   margin-left: 20%;
    border: none;
    padding: 5px;
    font-size: medium;
+   margin: 0px 45%;
    &:hover{
       background-color: white;
       color: black;  
       cursor: pointer;
    }
-
+ 
 `
+export const divContainerDetail = styled.div`
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+     
+`
+
 
 
 const Detail = () => {
    const {id} = useParams()
    const navigate = useNavigate()
   
-   function backToHome (){
+function backToHome (){
       navigate('/home')
     }
   
@@ -58,8 +71,7 @@ const Detail = () => {
  }, [id]);
 
   return (
-    <>
-      <Volver onClick={backToHome}>volver</Volver>
+    <divContainerDetail>
       <DivDetail>
          <div>
             <h1>{character.name}</h1>
@@ -70,7 +82,8 @@ const Detail = () => {
          </div>
          <img src={character.image} alt={character.name}/>
       </DivDetail>
-   </>
+      <Volver onClick={backToHome}>volver</Volver>
+   </divContainerDetail>
   )
 }
 
