@@ -20,7 +20,7 @@ const CardDiv = styled.div`
    margin-top: 35px;
    &:hover {
       transform: scale(1.1) translate(-2%, -2%);
-      transition-delay: 200ms;
+      transition-delay: 250ms;
       }
 `
 const ButtonX = styled.button`
@@ -59,6 +59,7 @@ const Atributes = styled.div`
   `
 const ImgCard = styled.img`
    width: 100%;
+   object-fit: cover;
    height: 180px;
    border-radius: 10px;
    margin-top: 10px;
@@ -123,15 +124,14 @@ function Card(props) {
 //este hook es el que me permite chequear en que pagina estoy navegando 
    
 const location = useLocation()
-
 function longNames(){
-   if(props.name.length > 25){
-      return props.name.slice(0,24) + '...'
+   if(props.name.length > 20 || props.name.length > 10 && !props.name.includes(' ')){
+      return props.name.slice(0,10) + '...'
    };
    return props.name   
 }
    
-   
+   ///^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
 // lo que renderiza nuestro componente
    return (
       <CardDiv>

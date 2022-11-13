@@ -1,24 +1,14 @@
 import { useState } from "react";
 import styled from "styled-components";
+import {NavButtons} from './Nav'
 
-const Bar= styled.div`
-   
-   `
- const AgregarButton = styled.button`
- background-color: #19c1a8;
- border-radius: 5px;
- margin-left: 5px;
- color:black;
+const Input= styled.input`
+ background-color: rgb(255,255,255,0.3);
+ padding: 8px;
  border: none;
- padding: 4px;
- font-size: small;
- &:hover{
-    background-color: black;
-    color: white;  
-    cursor: pointer;
- }
-
+ border-radius: 5px;
 `
+
 export default function SearchBar(props) {
    const [character, setName] = useState('')
    
@@ -32,9 +22,9 @@ export default function SearchBar(props) {
    }
 
    return (
-      <Bar>
-         <input placeholder='Escribe un numero' type='text' onChange={handleInput}/>
-         <AgregarButton onClick={handleClick}>Agregar</AgregarButton>
-      </Bar>
+      <div>
+         <Input placeholder='Escribe un numero...' type='text' onChange={handleInput}/>
+         <NavButtons onClick={handleClick}>Agregar</NavButtons>
+      </div>
    );
 }

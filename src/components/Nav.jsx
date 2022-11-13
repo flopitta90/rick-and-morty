@@ -12,14 +12,15 @@ const NavSearch= styled.nav`
     justify-content: space-between;
     align-items: center;
 `
-const NavButtons =styled.button`
+export const NavButtons =styled.button`
  background-color: #19c1a8;
  border-radius: 5px;
  margin-left: 5px;
  color:black;
  border: none;
- padding: 4px;
- font-size: small;
+ font-size: 16px;
+ padding:7px 9px;
+ margin-right: 10px;
  &:hover{
     background-color: black;
     color: white;  
@@ -42,8 +43,8 @@ export default function Nav (props) {
     return (
         <NavSearch>
             <img height='100px'src="https://w0.peakpx.com/wallpaper/940/144/HD-wallpaper-rick-and-morty-logo-ultra-cartoons-others-logo-rickandmorty.jpg"/>
-            <NavButtons onClick={handleNavButton} id='/About'>About</NavButtons>
             <NavButtons onClick={handleNavButton} id='/home'>Home</NavButtons>
+            <NavButtons onClick={handleNavButton} id='/About'>About</NavButtons>
             <NavButtons onClick={handleNavButton} id='/favorites'>❤</NavButtons>
             <NavButtons onClick={handleClick}>Random</NavButtons>
             <SearchBar onSearch={props.onSearch}/>
