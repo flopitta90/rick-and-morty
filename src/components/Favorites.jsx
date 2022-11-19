@@ -4,8 +4,8 @@ import Card from './Card'
 import styled from 'styled-components'
 import { filterCards, orderCards , filterBySpecie} from '../redux/actions'
 import { useState } from 'react'
-import SortIcon from "../img/sort-27-16.png"
-import FilterIcon from "../img/filter-10-16.png"
+import SortIcon from "../img/sort.png"
+import FilterIcon from "../img/filter.png"
 import { useLocation } from 'react-router-dom'
 
 const Divcard = styled.div`

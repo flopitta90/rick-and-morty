@@ -1,8 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import {Volver , DivDetail} from './Detail'
-import linkedIn from '../img/social-linkedin-32.png'
-import gitHub from '../img/github-61-32.png'
+import linkedIn from '../img/linkedin.png'
+import gitHub from '../img/github.png'
 import styled from 'styled-components'
 
 const IconsDiv=styled.div`
