@@ -81,7 +81,7 @@ const Favorites = ({myFavorites, allCharacters}) => {
     <DivFilters>
       <DivSelect>
         <div>
-        <img src={SortIcon} height='14px'/>
+        <img alt='sort-icon'src={SortIcon} height='14px'/>
         <label> Sort</label>
         <br/>
       <DropDown onChange={handleChange}>
@@ -97,7 +97,7 @@ const Favorites = ({myFavorites, allCharacters}) => {
       <br/>
       </div>
       <div>
-      <img src={FilterIcon}/>
+      <img alt='filter-icon' src={FilterIcon}/>
       <label> Filter</label>
       <br/>
       <DropDown  id='gender' onChange={handleFilter} >

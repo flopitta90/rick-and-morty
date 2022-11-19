@@ -10,17 +10,7 @@ const Div= styled.div`
   
 `
 
-const AboutContainer = styled.div`
-  color: white;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 400px;
-  width: 500px;
-  background-color: #131318;
-  border-radius: 20px;
-  `
+  
   
 
 const About = () => {

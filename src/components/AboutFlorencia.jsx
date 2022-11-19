@@ -45,8 +45,8 @@ export const AboutFlorencia = () => {
           <h4>Fullstack developer student from Henry</h4>
          <Container>
          <IconsDiv>
-          <Link target ='_blank' href='https://www.linkedin.com/in/florencia-conforti'><img src={linkedIn}/> </Link>
-          <Link target ='_blank' href='https://github.com/flopitta90' ><img src={gitHub}/></Link>
+          <Link target ='_blank' href='https://www.linkedin.com/in/florencia-conforti'><img alt= 'linkedin-icon'src={linkedIn}/> </Link>
+          <Link target ='_blank' href='https://github.com/flopitta90' ><img  alt= 'github-icon'src={gitHub}/></Link>
           </IconsDiv>
           </Container>
        </div>
