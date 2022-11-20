@@ -21,7 +21,9 @@ const FormLogin = styled.form`
   background-color: #131318;
   border-radius: 20px;
   box-shadow: 0 0 20px #39fae0;
-  ;
+  @media screen and (max-width: 960px){
+    width: 400px;
+  }
 `
 const SubmitButton = styled.button`
  background-color: #19c1a8;
@@ -39,6 +41,7 @@ const Errors= styled.p`
   color: #f94444;
   font-size: small;
   justify-content: center;
+  margin: 10px 20px;
 `
 
 
