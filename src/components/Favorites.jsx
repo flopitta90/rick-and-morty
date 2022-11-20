@@ -26,7 +26,6 @@ const DivSelect = styled.div`
    justify-content: space-evenly;
    margin: 10px;
    background-color: rgb(25, 193, 168, 0.5);
-   border-radius: 20px;
    width: 500px;
    padding: 10px;
    `   
@@ -37,7 +36,7 @@ const DropDown = styled.select`
   border-radius: 5px;
   font-size: 16px;
   padding:5px 9px;
-  margin-top: 2px;
+  margin: 2px;
 `   
 
 const Favorites = ({myFavorites, allCharacters}) => {

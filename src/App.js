@@ -25,7 +25,7 @@ function App () {
   const password= '123flor'
 
   function login(userData) {
-    if (userData.password === password && userData.username === username){
+    if (userData.password === password && userData.username.toLowerCase() === username){
       setAccess(true);
       navigate('/home');
     }

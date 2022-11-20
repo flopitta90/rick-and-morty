@@ -6,8 +6,7 @@ const Divcard = styled.div`
    flex-wrap: wrap;
    justify-content: space-evenly;
    margin-bottom: 20px;
-
-   `
+`
 
 export default function Cards(props) {
    const { characters } = props;
@@ -23,6 +22,7 @@ export default function Cards(props) {
             id={character.id}
             onClose = {() => props.onClose(character.id)}
             />
-         })}
+            })
+         }
    </Divcard>;
 }
