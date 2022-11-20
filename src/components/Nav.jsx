@@ -4,20 +4,23 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import menu from "../img/menu.png"
 import { useState } from "react";
+import rickLogo from "../img/rick-logo.png"
 
 const NavSearch= styled.nav`
     display: flex;
     height: 100px;
-    background-color: #131318;
-    justify-content: space-between;
+    background-color:black;
     align-items: center;
+    justify-content: space-between;
+
 `
 const Menu= styled.div`
     display: flex;
     height: 100px;
-    background-color: #131318;
-    justify-content: space-between;
-    align-items: center;        
+    width: 800px;
+    background-color: black;
+    align-items: center;
+    justify-content: space-around;
 
     @media screen and (max-width: 960px) {
         display: flex;
@@ -27,39 +30,58 @@ const Menu= styled.div`
         width:100%;
         height: 90vh;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;}
         transition: 0.5s all ease;
         z-index: 999;
+        }
 `
 
 export const NavButtons = styled(NavLink)`
  text-decoration: none;
- margin-left: 5px;
- color: #19c1a8;
+ color:#19c1a8;
  border: none;
  font-size: 18px;
- padding:35px 40px;
- margin-right: 10px;
+ padding:35px 0px;
+ width: 120px;
+ text-align: center;
+ justify-content: center;
+ align-items: center;
  &:hover{
     background-color: #19c1a8;  
     color:black;
     cursor: pointer;
-    /* box-shadow: 0 0 10px #19c1a8; */
     @media screen and (max-width: 960px){
         width: 100%;
         display: flex;
-        align-items: center;
         justify-content: center;
     }
  }
 `
-const Imagediv= styled.div`
+const Random = styled(NavLink)`
+ text-decoration: none;
+ margin-left: 5px;
+ color:#93f566;
+ border: none;
+ font-size: 18px;
+ padding:15px ;
+ background:none;
+ border-radius: 5px;
+ &:hover{
+    background-color: #19c1a8;  
+    color:black;
+    cursor: pointer;
+    box-shadow: 0 0 10px #19c1a8;
+ }
+`
+const Menudiv= styled.div`
     display: none;
     @media screen and (max-width: 960px){
         display: flex;
         margin-right: 20px;
     }
+`
+const Logo = styled.img`
+    width: 200px;
+    margin: 10px;
 `
 
 
@@ -76,13 +98,13 @@ const [menuMobile, setMenuMobile] = useState(false)
     
     return (
         <NavSearch>
-            <NavLink to='/home'><img height='100px'src="https://w0.peakpx.com/wallpaper/940/144/HD-wallpaper-rick-and-morty-logo-ultra-cartoons-others-logo-rickandmorty.jpg"/></NavLink>
-            <Imagediv onClick={()=> setMenuMobile(!menuMobile)}><img alt='menu' src={menu}/></Imagediv>
+            <NavLink to='/home'><Logo src={rickLogo}/></NavLink>
+            <Menudiv onClick={()=> setMenuMobile(!menuMobile)}><img alt='menu' src={menu}/></Menudiv>
             <Menu open= {menuMobile}>
             <NavButtons onClick={()=> setMenuMobile(!menuMobile)} to='/home'>Home</NavButtons>
             <NavButtons onClick={()=> setMenuMobile(!menuMobile)} to='/About'>About</NavButtons>
-            <NavButtons  onClick={()=> setMenuMobile(!menuMobile)} to='/favorites'>❤</NavButtons>
-            <NavButtons onClick={handleClick} >Random</NavButtons>
+            <NavButtons onClick={()=> setMenuMobile(!menuMobile)} to='/favorites'>❤</NavButtons>
+            <Random onClick={handleClick} >Random</Random>
             <SearchBar onSearch={props.onSearch}/>
             </Menu>
         </NavSearch>

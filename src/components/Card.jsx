@@ -53,7 +53,6 @@ const Atributes = styled.div`
   justify-content: space-around;
   padding-top: 5px;
   padding-bottom: 5px;
-  margin: 10px;
   background-color: #93f566;
   border-radius: 10px;
   width: 100%;
@@ -66,8 +65,6 @@ const ImgCard = styled.img`
    margin-top: 10px;
    `
 const Span = styled.span`
-   max-width: 45px;
-   
    `
 
 const Name = styled.h2`
@@ -87,6 +84,7 @@ const CrossFav = styled.div`
 `
 const Link = styled(NavLink)`
    text-decoration: none;
+   color: black;
 `
 
 
@@ -151,11 +149,13 @@ function longNames(){
             </CrossFav>
             <Link to={`/detail/${props.id}`}><Name>{longNames()}</Name></Link>
          </CardHeader>
-         <ImgCard src={props.image} alt={props.name} />
-         <Atributes>
-         <Span>{props.species}</Span>
-         <Span>{props.gender}</Span>
-         </Atributes>
+         <Link to={`/detail/${props.id}`} >
+            <ImgCard src={props.image} alt={props.name} />
+            <Atributes>
+               <Span>{props.species}</Span>
+               <Span>{props.gender}</Span>
+            </Atributes>
+         </Link>   
       </CardDiv>
    );
 }

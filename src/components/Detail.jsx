@@ -12,26 +12,29 @@ export const DivDetail = styled.div`
   align-items: center;
   margin: 3% 15%;
   border-radius: 25px;
-  box-shadow: 0 0 20px #19c1a8;
-  @media(max-width: 750px){
+  box-shadow: 0 0 20px black;
+  @media(max-width: 960px){
       flex-direction: column;
       padding-bottom: 20px;
+      width: 100%;
+      margin: 0;
    }
-     
-  
+`
+const Name = styled.h1`
+  color: #93f566;
 `
 export const Volver = styled.button`
-   background-color:#19c1a8;;
+   background-color:#93f566;
    border-radius: 5px;
    border: none;
-   padding: 5px;
+   padding: 10px;
    font-size: medium;
    margin: 0px 45%;
    &:hover{
       background-color: black;
-      color: white;  
+      color: #93f566;  
       cursor: pointer;
-      box-shadow: 0 0 10px #19c1a8;
+      
    }
  
 `
@@ -76,7 +79,7 @@ function backToHome (){
     <divContainerDetail>
       <DivDetail>
          <div>
-            <h1>{character.name}</h1>
+            <Name>{character.name}</Name>
             <h4>Status: {character.status}</h4>
             <h4>Specie: {character.species}</h4>
             <h4>Gender: {character.gender}</h4>

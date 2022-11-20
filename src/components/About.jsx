@@ -30,4 +30,3 @@ const About = () => {
 
 export default About
 
-//https://pbs.twimg.com/profile_images/2856295053/ab23901d3aee5ff219fb07c7db959fd8_400x400.jpeg

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import validate from './validation.js'
 import { useState } from 'react'
+import logoRick from "../img/rick-logo.png"
 
 const Background = styled.div` 
   display: flex ;
@@ -16,13 +17,13 @@ const FormLogin = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 400px;
-  width: 500px;
+  height: 350px;
+  width: 450px;
   background-color: #131318;
   border-radius: 20px;
   box-shadow: 0 0 20px #39fae0;
   @media screen and (max-width: 960px){
-    width: 400px;
+    width: 350px;
   }
 `
 const SubmitButton = styled.button`
@@ -42,6 +43,9 @@ const Errors= styled.p`
   font-size: small;
   justify-content: center;
   margin: 10px 20px;
+`
+const Logo = styled.img`
+  width: 330px;
 `
 
 
@@ -75,7 +79,7 @@ const Form = (props) => {
   return (
     <Background>
         <FormLogin onSubmit={handleSubmit}>
-        <img height='190px'src="https://w0.peakpx.com/wallpaper/940/144/HD-wallpaper-rick-and-morty-logo-ultra-cartoons-others-logo-rickandmorty.jpg"/> 
+        <Logo src={logoRick}/> 
          <label>Username:</label>
          <input value={userData.username}
          name='username'

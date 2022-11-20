@@ -6,13 +6,12 @@ import gitHub from '../img/github.png'
 import styled from 'styled-components'
 
 const IconsDiv=styled.div`
-  background-color: rgb(127, 255, 212, 0.8);
+  background-color: #93f566;
   width: 80px;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   border-radius: 5px;
-  box-shadow: 0 0 10px #19c1a8;
   margin-bottom: 20px;
 `
 const Container = styled.div`
@@ -20,7 +19,9 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
 `
-
+const Name= styled.h1`
+  color:#93f566;
+`
 
 const Link= styled.a`
   text-decoration: none;
@@ -37,7 +38,7 @@ export const AboutFlorencia = () => {
     <div>
     <DivDetail>
        <div>
-          <h1>Florencia Conforti</h1>
+          <Name>Florencia Conforti</Name>
           <h4>Status: Alive </h4>
           <h4>Specie: Human </h4>
           <h4>Gender: Female</h4>

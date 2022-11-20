@@ -28,6 +28,12 @@ const DivSelect = styled.div`
    background-color: rgb(25, 193, 168, 0.5);
    width: 500px;
    padding: 10px;
+
+
+   @media screen and (max-width:960px) {
+    width: 350px;
+    
+   }
    `   
 
 const DropDown = styled.select`
