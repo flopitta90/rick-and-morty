@@ -47,7 +47,7 @@ const Random = styled.button`
  }
 
  @media screen and (max-width:960px) {
-      margin: 70px;
+      margin-bottom: 30px;
    }
 `
 const Contenedor=styled.div`
@@ -60,6 +60,7 @@ const Contenedor=styled.div`
    @media screen and (max-width:960px) {
       flex-direction: column;
       align-items: center;
+      justify-content: center;
    }
 
 `
