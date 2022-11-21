@@ -32,7 +32,8 @@ const DivSelect = styled.div`
 
    @media screen and (max-width:960px) {
     width: 350px;
-    
+    text-decoration: none;
+    color:black;
    }
    `   
 

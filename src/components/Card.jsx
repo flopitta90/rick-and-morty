@@ -18,11 +18,16 @@ const CardDiv = styled.div`
    align-items: center;
    justify-content: center;
    margin: 15px;
-   &:hover {
-      transform: scale(1.01) translate(-2%, -2%);
-      transition-delay: 250ms;
-      box-shadow: 0 0 10px #19c1a8;
+   @media (hover: hover) {
+      &:hover {
+         transform: scale(1.01) translate(-2%, -2%);
+         transition-delay: 250ms;
+         box-shadow: 0 0 10px #19c1a8;
       }
+   }
+   @media screen and (max-width:960px) {
+      width: 300px;
+   }   
 `
 const ButtonX = styled.button`
    background-color: #93f566;
@@ -31,11 +36,13 @@ const ButtonX = styled.button`
    height: 20px;
    border: none;
    margin-top: 3px;
-   &:hover{
-      background-color: black;
-      color: white;  
-      cursor: pointer;
-   }
+   @media (hover:hover){
+      &:hover{
+         background-color: black;
+         color: white;  
+         cursor: pointer;
+      }
+   }   
    `
 
 const CardHeader = styled.div`
@@ -63,6 +70,9 @@ const ImgCard = styled.img`
    height: 180px;
    border-radius: 10px;
    margin-top: 10px;
+    @media screen and (max-width:960px) {
+      height: auto;
+    }
    `
 const Span = styled.span`
    `

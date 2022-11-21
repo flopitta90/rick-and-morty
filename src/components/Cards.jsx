@@ -12,7 +12,7 @@ const Divcard = styled.div`
 const DivInicio = styled.div`
    display: flex;
    align-items: center;
-   justify-content: space-between;
+   justify-content: space-evenly;
 
    @media screen and (max-width:960px){
       flex-direction: column;
@@ -61,6 +61,7 @@ const Contenedor=styled.div`
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      width: auto;
    }
 
 `
@@ -84,34 +85,35 @@ export default function Cards(props) {
    }
    
  console.log(characters)
-   return characters.length > 0 ? <Divcard>
+   return characters.length > 0 
+? <Divcard>
       <Contenedor>
-      <Random onClick={handleClick}>Random</Random>
-      <SearchBar onSearch={props.onSearch}/>
+         <Random onClick={handleClick}>Random</Random>
+         <SearchBar onSearch={props.onSearch}/>
       </Contenedor>
-         {characters.map(character => {
-            return <Card 
-            key={character.id}
-            name={character.name} 
-            species={character.species} 
-            gender={character.gender}
-            image={character.image} 
-            id={character.id}
-            onClose = {() => props.onClose(character.id)}
-            />
-            })
-         }
-   </Divcard> : <div>
-   <Contenedor>
-      <Random onClick={handleClick}>Random</Random>
-      <SearchBar onSearch={props.onSearch}/>
-      </Contenedor>
-      <DivInicio>
-      <RickAndMorty src={rickAndMorty}/>
-      <div>
-         <Instruccion>Descubre los personajes!</Instruccion>
-         <Instruccion>Puedes escribir un numero o apretar Random</Instruccion>
-      </div>
-   </DivInicio>;
-   </div>
+      {characters.map(character => {
+         return <Card 
+         key={character.id}
+         name={character.name} 
+         species={character.species} 
+         gender={character.gender}
+         image={character.image} 
+         id={character.id}
+         onClose = {() => props.onClose(character.id)}
+         />
+         })
+      }
+</Divcard> : <div>
+                  <Contenedor>
+                     <Random onClick={handleClick}>Random</Random>
+                     <SearchBar onSearch={props.onSearch}/>
+                  </Contenedor>
+                  <DivInicio>
+                     <RickAndMorty src={rickAndMorty}/>
+                     <div>
+                        <Instruccion>Descubre los personajes!</Instruccion>
+                        <Instruccion>Puedes escribir un numero o apretar Random</Instruccion>
+                     </div>
+                  </DivInicio>;
+               </div>
 }
