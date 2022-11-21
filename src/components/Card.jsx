@@ -71,7 +71,7 @@ const ImgCard = styled.img`
    border-radius: 10px;
    margin-top: 10px;
     @media screen and (max-width:960px) {
-      height: auto;
+      height: 300px;
     }
    `
 const Span = styled.span`

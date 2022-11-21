@@ -7,6 +7,7 @@ import { useState } from 'react'
 import SortIcon from "../img/sort.png"
 import FilterIcon from "../img/filter.png"
 import { useLocation } from 'react-router-dom'
+import rickFavorites from "../img/rick-favorites.png"
 
 const Divcard = styled.div`
    display: flex;
@@ -45,6 +46,36 @@ const DropDown = styled.select`
   padding:5px 9px;
   margin: 2px;
 `   
+const Image=styled.img`
+height: 500px;
+width: 30%;
+object-fit: cover;
+   @media screen and (max-width: 960px){
+    width: 100%;
+    height: 350px;
+   }
+
+`
+const Instrucciones = styled.h1`
+   color: #93f566;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   text-align: center;
+   margin: 50px;
+   @media screen and (max-width:960px) {
+   }
+`
+
+const Contenedor = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  @media screen and (max-width:960px){
+    flex-direction: column-reverse;
+  }
+`
+
+
+
 
 const Favorites = ({myFavorites, allCharacters}) => {
 
@@ -83,7 +114,7 @@ const Favorites = ({myFavorites, allCharacters}) => {
     }
     const location = useLocation()
 
-  return (
+  return ( myFavorites.length > 0 ?
     <DivFilters>
       <DivSelect>
         <div>
@@ -131,7 +162,10 @@ const Favorites = ({myFavorites, allCharacters}) => {
             />
       )}
     </Divcard>
-  </DivFilters>
+  </DivFilters> : <Contenedor>
+                    <Image src={rickFavorites}/>
+                    <Instrucciones>No has likeado ningun personaje aun!</Instrucciones>
+                  </Contenedor>
   )}
 
 
