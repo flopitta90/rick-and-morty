@@ -9,21 +9,22 @@ const Container=styled.div`
 `
 
 const Input= styled.input`
- background:none;
+ background-color: #dfdbdb;
  padding: 8px;
  border-color: #93f566;
  border-radius: 5px;
- color:white;
+ color:black;
 `
 const Agregar= styled.button`
  text-decoration: none;
  margin-left: 5px;
- color:#93f566;
+ color:black;
  border: none;
  font-size: 18px;
  padding:15px ;
- background:none;
  border-radius: 5px;
+ background-color: #93f566;
+
  &:hover{
     background-color: #19c1a8;  
     color:black;

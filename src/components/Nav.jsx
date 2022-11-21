@@ -17,7 +17,7 @@ const NavSearch= styled.nav`
 const Menu= styled.div`
     display: flex;
     height: 100px;
-    width: 800px;
+    width: 500px;
     background-color: black;
     align-items: center;
     justify-content: space-around;
@@ -104,8 +104,6 @@ const [menuMobile, setMenuMobile] = useState(false)
             <NavButtons onClick={()=> setMenuMobile(!menuMobile)} to='/home'>Home</NavButtons>
             <NavButtons onClick={()=> setMenuMobile(!menuMobile)} to='/About'>About</NavButtons>
             <NavButtons onClick={()=> setMenuMobile(!menuMobile)} to='/favorites'>❤</NavButtons>
-            <Random onClick={handleClick} >Random</Random>
-            <SearchBar onSearch={props.onSearch}/>
             </Menu>
         </NavSearch>
     )

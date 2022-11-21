@@ -61,7 +61,7 @@ function App () {
      {location.pathname === '/' ? null : <Nav onSearch={onSearch}/>}
       <Routes>
           <Route path='/' element={<Form login={login} />}/>
-          <Route path='/home' element={<Cards characters={characters} id={characters.id} onClose={onClose}/>}/>
+          <Route path='/home' element={<Cards onSearch={onSearch} characters={characters} id={characters.id} onClose={onClose}/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/detail/:id' element={<Detail/>}/>
           <Route path='/favorites' element={<Favorites/>}/>
