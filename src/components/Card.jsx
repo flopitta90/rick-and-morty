@@ -140,7 +140,7 @@ function longNames(){
    const arrayName = props.name.split(' ')
    const bigName = arrayName.filter(word => word.length > 10)
    if(props.name.length > 20 || bigName.length > 0){
-      return props.name.slice(0,15) + '...'
+      return props.name.slice(0,9) + '...'
    };
    return props.name   
 }
