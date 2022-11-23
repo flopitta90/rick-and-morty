@@ -114,7 +114,7 @@ const Favorites = ({myFavorites, allCharacters}) => {
     }
     const location = useLocation()
 
-  return ( myFavorites.length > 0 ?
+  return ( allCharacters.length > 0 ?
     <DivFilters>
       <DivSelect>
         <div>
