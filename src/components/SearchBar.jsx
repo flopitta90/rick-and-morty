@@ -46,7 +46,7 @@ export default function SearchBar(props) {
 
    return (
       <Container>
-         <Input placeholder='Escribe un numero...' type='text' onChange={handleInput}/>
+         <Input placeholder='1 - 826' type='text' onChange={handleInput}/>
          <Agregar onClick={handleClick}>Agregar</Agregar>
       </Container>
    );

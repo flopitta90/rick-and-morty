@@ -20,13 +20,12 @@ const DivInicio = styled.div`
    }
 `
 const RickAndMorty = styled.img`
-   opacity: 0.9;
    width: 400px;
    
    @media screen and (max-width:960px){
       margin:10px;
       width: 350px;
-      position: absolute;
+      position: fixed;
       bottom: 0;
    }
 `
@@ -62,6 +61,7 @@ const Contenedor=styled.div`
       align-items: center;
       justify-content: center;
       width: auto;
+      
    }
 
 `

@@ -31,6 +31,11 @@ function App () {
     }
   }
 
+  function logout(){
+    setAccess(false);
+    navigate('/')
+  }
+
   useEffect(() => {
     !access && navigate('/');
   }, [access, navigate]);
@@ -43,7 +48,7 @@ function App () {
         if (chars.find((char) => char.id === data.id)) {
           window.alert("El personaje ya esta agregado");
         } else if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
+          setCharacters((oldChars) => [data, ...oldChars]);
         } else {
           window.alert("No hay personajes con ese ID");
         }
@@ -58,7 +63,7 @@ function App () {
 
   return (
     <div>
-     {location.pathname === '/' ? null : <Nav onSearch={onSearch}/>}
+     {location.pathname === '/' ? null : <Nav logout={logout} />}
       <Routes>
           <Route path='/' element={<Form login={login} />}/>
           <Route path='/home' element={<Cards onSearch={onSearch} characters={characters} id={characters.id} onClose={onClose}/>}/>

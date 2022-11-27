@@ -136,6 +136,7 @@ function Card(props) {
 //este hook es el que me permite chequear en que pagina estoy navegando 
    
 const location = useLocation()
+
 function longNames(){
    const arrayName = props.name.split(' ')
    const bigName = arrayName.filter(word => word.length > 10)
