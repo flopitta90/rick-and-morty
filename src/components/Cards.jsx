@@ -2,7 +2,9 @@ import Card from './Card';
 import styled from 'styled-components';
 import rickAndMorty from "../img/rick&morty.png"
 import SearchBar from './SearchBar.jsx'
-
+import { Pagination } from './Pagination';
+import { useEffect } from 'react';
+import { useState } from 'react';
 const Divcard = styled.div`
    display: flex;
    flex-wrap: wrap;
@@ -75,13 +77,30 @@ const Instruccion = styled.h1`
       display: none;
    }
 `
+const PagesDiv = styled.div`
+   width: 100%;
+   display: flex;
+   justify-content: center;
+`
 
 export default function Cards(props) {
    const { characters } = props;
-
+   const [currentPage, setCurrentPage] = useState(0)
+  const[showingChars , setShowingChars] = useState([])
+   
    const handleClick = () => 
    {let id = Math.floor(Math.random() * 826) + 1;
        props.onSearch(id)
+   }
+   
+   useEffect(()=>{
+      setShowingChars([...characters.slice(currentPage*10, currentPage*10 + 10)])
+      console.log('useEffect',showingChars)
+   },[currentPage, characters])
+
+   const handlePages = (id) => {
+     setCurrentPage(id-1)
+     console.log(currentPage)
    }
    
  console.log(characters)
@@ -91,7 +110,7 @@ export default function Cards(props) {
          <Random onClick={handleClick}>Random</Random>
          <SearchBar onSearch={props.onSearch}/>
       </Contenedor>
-      {characters.map(character => {
+      {showingChars.map(character => {
          return <Card 
          key={character.id}
          name={character.name} 
@@ -103,6 +122,9 @@ export default function Cards(props) {
          />
          })
       }
+      <PagesDiv>
+      <Pagination amount={characters.length} currentPage={0} handlePages={handlePages}/>
+      </PagesDiv>
 </Divcard> : <div>
                   <Contenedor>
                      <Random onClick={handleClick}>Random</Random>
