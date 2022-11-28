@@ -5,11 +5,24 @@ import SearchBar from './SearchBar.jsx'
 import { Pagination } from './Pagination';
 import { useEffect } from 'react';
 import { useState } from 'react';
-const Divcard = styled.div`
+
+const DivWrapper= styled.div`
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+`
+
+export const Divcard = styled.div`
    display: flex;
    flex-wrap: wrap;
    justify-content: space-evenly;
    margin-bottom: 20px;
+   max-width:1400px;
+   min-height: 770px;
+   @media screen and (max-width:960px){
+      min-height: auto;
+   }
 `
 const DivInicio = styled.div`
    display: flex;
@@ -22,7 +35,7 @@ const DivInicio = styled.div`
    }
 `
 const RickAndMorty = styled.img`
-   width: 400px;
+   width: 30%;
    
    @media screen and (max-width:960px){
       margin:10px;
@@ -77,39 +90,40 @@ const Instruccion = styled.h1`
       display: none;
    }
 `
-const PagesDiv = styled.div`
-   width: 100%;
+export const PagesDiv = styled.div`
    display: flex;
    justify-content: center;
 `
 
 export default function Cards(props) {
    const { characters } = props;
-   const [currentPage, setCurrentPage] = useState(0)
-  const[showingChars , setShowingChars] = useState([])
-   
+
    const handleClick = () => 
    {let id = Math.floor(Math.random() * 826) + 1;
        props.onSearch(id)
    }
+
+   const [currentPage, setCurrentPage] = useState(0)
+   const[showingChars , setShowingChars] = useState([])
+   
    
    useEffect(()=>{
       setShowingChars([...characters.slice(currentPage*10, currentPage*10 + 10)])
-      console.log('useEffect',showingChars)
    },[currentPage, characters])
 
    const handlePages = (id) => {
      setCurrentPage(id-1)
-     console.log(currentPage)
    }
    
  console.log(characters)
    return characters.length > 0 
-? <Divcard>
-      <Contenedor>
+      ? <>
+         <Contenedor>
          <Random onClick={handleClick}>Random</Random>
          <SearchBar onSearch={props.onSearch}/>
       </Contenedor>
+<DivWrapper>
+   <Divcard>
       {showingChars.map(character => {
          return <Card 
          key={character.id}
@@ -120,12 +134,14 @@ export default function Cards(props) {
          id={character.id}
          onClose = {() => props.onClose(character.id)}
          />
-         })
-      }
+      })
+   }
+      </Divcard>
       <PagesDiv>
-      <Pagination amount={characters.length} currentPage={0} handlePages={handlePages}/>
+      <Pagination amount={characters.length} currentPage={currentPage} handlePages={handlePages}/>
       </PagesDiv>
-</Divcard> : <div>
+   </DivWrapper>
+   </> : <div>
                   <Contenedor>
                      <Random onClick={handleClick}>Random</Random>
                      <SearchBar onSearch={props.onSearch}/>

@@ -8,14 +8,10 @@ import SortIcon from "../img/sort.png"
 import FilterIcon from "../img/filter.png"
 import { useLocation } from 'react-router-dom'
 import rickFavorites from "../img/rick-favorites.png"
+import { Divcard, PagesDiv } from './Cards'
+import { Pagination } from './Pagination'
 
-const Divcard = styled.div`
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-evenly;
-   margin-bottom: 20px;
-   font-size: 16px;
-   `
+
 const DivFilters= styled.div`
   display: flex;
   flex-direction: column;
@@ -47,8 +43,7 @@ const DropDown = styled.select`
   margin: 2px;
 `   
 const Image=styled.img`
-height: 500px;
-width: 30%;
+width: 40%;
 object-fit: cover;
    @media screen and (max-width: 960px){
     width: 100%;
@@ -78,6 +73,18 @@ const Contenedor = styled.div`
 
 
 const Favorites = ({myFavorites, allCharacters}) => {
+
+  const [currentPage, setCurrentPage] = useState(0)
+  const[showingChars , setShowingChars] = useState([])
+  
+  
+  useEffect(()=>{
+     setShowingChars([...myFavorites.slice(currentPage*10, currentPage*10 + 10)])
+  },[currentPage, myFavorites])
+
+  const handlePages = (id) => {
+    setCurrentPage(id-1)
+  }
 
 
   const dispatch = useDispatch()
@@ -151,7 +158,7 @@ const Favorites = ({myFavorites, allCharacters}) => {
       </div>
       </DivSelect>
     <Divcard>
-    {myFavorites.map(character => 
+    {showingChars.map(character => 
       <Card 
             key={character.id}
             name={character.name} 
@@ -162,6 +169,9 @@ const Favorites = ({myFavorites, allCharacters}) => {
             />
       )}
     </Divcard>
+    <PagesDiv>
+      <Pagination amount={myFavorites.length} currentPage={currentPage} handlePages={handlePages}/>
+      </PagesDiv>
   </DivFilters> : <Contenedor>
                     <Image src={rickFavorites}/>
                     <Instrucciones>No has likeado ningun personaje aun!</Instrucciones>

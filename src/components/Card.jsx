@@ -18,6 +18,7 @@ const CardDiv = styled.div`
    align-items: center;
    justify-content: center;
    margin: 15px;
+   max-height: 300px;
    @media (hover: hover) {
       &:hover {
          transform: scale(1.01) translate(-2%, -2%);
@@ -27,6 +28,7 @@ const CardDiv = styled.div`
    }
    @media screen and (max-width:960px) {
       width: 300px;
+      max-height:400px ;
    }   
 `
 const ButtonX = styled.button`

@@ -1,4 +1,20 @@
 import React from 'react'
+import styled from 'styled-components'
+
+
+const PagesButton= styled.button`
+  background-color: #93f566;
+  margin: 2px;
+  border-radius: 5px;
+  border: none;
+`
+const PagesButtonS= styled.button`
+  background-color: #19c1a8;
+  margin: 2px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+`
 
 export const Pagination = (props) => {
 const {amount, currentPage, handlePages} = props
@@ -15,5 +31,7 @@ const handleClick = (e) => {
   handlePages(e.target.id)
 }
 
- return qtyButtons > 1 ? ArrButtons.map(btt => <button onClick={handleClick} id={btt}>{btt}</button>) : null
+ return qtyButtons > 1 ? ArrButtons.map(btt => {
+  if(btt-1 === currentPage){return <PagesButtonS onClick={handleClick} id={btt}>{btt}</PagesButtonS>}
+ return <PagesButton onClick={handleClick} id={btt}>{btt}</PagesButton>}) : null
 }
