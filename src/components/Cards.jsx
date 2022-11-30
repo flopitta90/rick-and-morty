@@ -32,6 +32,7 @@ const DivInicio = styled.div`
    @media screen and (max-width:960px){
       flex-direction: column;
       align-items: center;
+      min-height: 100% vh;
    }
 `
 const RickAndMorty = styled.img`
@@ -39,9 +40,11 @@ const RickAndMorty = styled.img`
    
    @media screen and (max-width:960px){
       margin:10px;
+      margin-bottom: 0px;
       width: 350px;
-      position: fixed;
+      position: relative;
       bottom: 0;
+      z-index: 1;
    }
 `
 const Random = styled.button`
@@ -61,7 +64,7 @@ const Random = styled.button`
  }
 
  @media screen and (max-width:960px) {
-      margin-bottom: 30px;
+      margin: 30px 0px; 
    }
 `
 const Contenedor=styled.div`
@@ -73,10 +76,11 @@ const Contenedor=styled.div`
 
    @media screen and (max-width:960px) {
       flex-direction: column;
-      align-items: center;
+      align-items: stretch;
       justify-content: center;
       width: auto;
-      
+      height: fit-content;
+      z-index: 998;
    }
 
 `
@@ -121,6 +125,7 @@ export default function Cards(props) {
          <Contenedor>
          <Random onClick={handleClick}>Random</Random>
          <SearchBar onSearch={props.onSearch}/>
+         <Random onClick={props.onClearAll}>Clear all</Random>
       </Contenedor>
 <DivWrapper>
    <Divcard>

@@ -59,14 +59,16 @@ function App () {
     setCharacters(characters.filter(char => char.id !== id))
   }
 
-
+  const onClearAll = () => {
+    setCharacters([])
+  }
 
   return (
     <div>
      {location.pathname === '/' ? null : <Nav logout={logout} />}
       <Routes>
           <Route path='/' element={<Form login={login} />}/>
-          <Route path='/home' element={<Cards onSearch={onSearch} characters={characters} id={characters.id} onClose={onClose}/>}/>
+          <Route path='/home' element={<Cards onSearch={onSearch} characters={characters} id={characters.id} onClose={onClose} onClearAll={onClearAll}/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/detail/:id' element={<Detail/>}/>
           <Route path='/favorites' element={<Favorites/>}/>
